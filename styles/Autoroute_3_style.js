@@ -9,19 +9,22 @@ var style_Autoroute_3 = function(feature, resolution){
     var value = ""
     var labelText = "";
     size = 0;
-    var labelFont = "10px, sans-serif";
-    var labelFill = "rgba(0, 0, 0, 1)";
+    var labelFont = "13.0px \'MS Shell Dlg 2\', sans-serif";
+    var labelFill = "#4aab98";
+    var bufferColor = "#ffffff";
+    var bufferWidth = 0.6;
     var textAlign = "left";
     var offsetX = 8;
     var offsetY = 3;
     var placement = 'line';
-    if ("" !== null) {
-        labelText = String("");
+    if (feature.get("NUMERO") !== null) {
+        labelText = String(feature.get("NUMERO"));
     }
     var style = [ new ol.style.Style({
         stroke: new ol.style.Stroke({color: 'rgba(74,171,152,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 2}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
-                              labelFill, placement)
+                              labelFill, placement, bufferColor,
+                              bufferWidth)
     })];
 
     return style;
